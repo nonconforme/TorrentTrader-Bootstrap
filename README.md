@@ -21,9 +21,9 @@ Versions used in the project:
 
 Boostrap: 3.5<br/>
 HTML5<br/>
-CSSe<br/>
+CSe<br/>
 FontAwesome: 4.3.0<br/>
-TorrentTrader 2.08 Finale
+TorrentTrader 2.08 Final
 
 <p>This project is still in progress, so do not use it in production at its tracker so you do not think bugs not fixed yet.</p>
 
