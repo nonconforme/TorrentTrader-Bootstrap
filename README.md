@@ -1,7 +1,7 @@
 # TorrentTrader-Bootstrap
 TorrentTrader Bootstrap 3
 
-Reescrevendo o codigo HTML e CSS3 do TorrentTrader 2.08, todo o código será baseado em Bootstrap 3.
+<p>Reescrevendo o codigo HTML e CSS3 do TorrentTrader 2.08, todo o código será baseado em Bootstrap 3.</p>
 
 Versões utilizadas no projeto:
 
@@ -13,9 +13,9 @@ TorrentTrader 2.08 Final
 
 <p>Este projeto ainda está em andamento, por isso não o utilize em produção em seu tracker para que não acha bugs ainda não corrigidos.</p>
 
-English
+<h3><strong>English:</strong></h3>
 
-Rewriting the code HTML and CSS3 TorrentTrader 2:08, all code will be based on Bootstrap 3.
+<p>Rewriting the code HTML and CSS3 TorrentTrader 2:08, all code will be based on Bootstrap 3.</p>
 
 Versions used in the project:
 
