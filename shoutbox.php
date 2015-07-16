@@ -1,10 +1,11 @@
 <?php
 //
 //  TorrentTrader v2.x
-//      $LastChangedDate: 2012-06-14 17:31:26 +0100 (Thu, 14 Jun 2012) $
-//      $LastChangedBy: torrenttrader $
+//      $LastChangedDate: 2015-07-16 
+//      $LastChangedBy: Patience $
 //
-//      http://www.torrenttrader.org
+//      http://www.torrenttrader.pw
+//		Theme by Patience
 //
 //
 require_once("backend/functions.php");
