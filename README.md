@@ -21,7 +21,7 @@ Versions used in the project:
 
 Boostrap: 3.5<br/>
 HTML5<br/>
-CSe<br/>
+CSS3<br/>
 FontAwesome: 4.3.0<br/>
 TorrentTrader 2.08 Final
 
