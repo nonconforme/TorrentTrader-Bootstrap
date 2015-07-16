@@ -5,17 +5,13 @@ Reescrevendo o codigo HTML e CSS3 do TorrentTrader 2.08, todo o código será ba
 
 Versões utilizadas no projeto:
 
-Boostrap: 3.5
-HTML5
-CSS3
-FontAwesome: 4.3.0
+Boostrap: 3.5<br/>
+HTML5<br/>
+CSS3<br/>
+FontAwesome: 4.3.0<br/>
 TorrentTrader 2.08 Final
 
-Este projeto ainda está em andamento, por isso não o utilize em produção em seu tracker para que não acha bugs ainda não corrigidos.
-
-Developer by Patience<br/>
-Theme by Patience<br/>
-PHP by TorrentTrader
+<p>Este projeto ainda está em andamento, por isso não o utilize em produção em seu tracker para que não acha bugs ainda não corrigidos.</p>
 
 English
 
@@ -30,3 +26,7 @@ FontAwesome: 4.3.0<br/>
 TorrentTrader 2.08 Finale
 
 <p>This project is still in progress, so do not use it in production at its tracker so you do not think bugs not fixed yet.</p>
+
+Developer by Patience<br/>
+Theme by Patience<br/>
+PHP by TorrentTrader
