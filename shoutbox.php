@@ -1,11 +1,10 @@
 <?php
 //
 //  TorrentTrader v2.x
-//      $LastChangedDate: 2015-07-16 
-//      $LastChangedBy: Patience $
+//      $LastChangedDate: 2012-06-14 17:31:26 +0100 (Thu, 14 Jun 2012) $
+//      $LastChangedBy: torrenttrader $
 //
-//      http://www.torrenttrader.pw
-//		Theme by Patience
+//      http://www.torrenttrader.org
 //
 //
 require_once("backend/functions.php");
@@ -57,28 +56,26 @@ if ($CURUSER){
 		$THEME = $ss_a["uri"];
 }
 
-if(!isset($_GET['history'])){ 
-?>
+if(!isset($_GET['history'])){ ?>
+
 <html>
 <head>
-<title><?php echo $site_config['SITENAME'] . T_("SHOUTBOX"); ?></title>
-<?php /* If you do change the refresh interval, you should also change index.php printf(T_("SHOUTBOX_REFRESH"), 5) the 5 is in minutes */ ?>
-<meta http-equiv="refresh" content="300" />
-<!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="themes/<?php echo $THEME; ?>/css/bootstrap.min.css">
-  
-  <!-- Style CSS -->
-  <link rel="stylesheet" href="themes/<?php echo $THEME; ?>/css/style.css" />
+	<title><?php echo $site_config['SITENAME'].':'.T_("SHOUTBOX"); ?></title>
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="themes/<?php echo $THEME; ?>/css/font-awesome.min.css">
-<script src="backend/java_klappe.js"></script>
+	<meta http-equiv="refresh" content="300" />
+	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="themes/<?php echo $THEME; ?>/css/bootstrap.min.css">
+  
+  	<!-- Style CSS -->
+  	<link rel="stylesheet" href="themes/<?php echo $THEME; ?>/css/style.css" />
+
+  	<!-- Fonts -->
+  	<link rel="stylesheet" href="themes/<?php echo $THEME; ?>/css/font-awesome.min.css">
+	<script src="backend/java_klappe.js"></script>
 </head>
 <body>
 
-	<dl class="dl-horizontal shoutbox">
-	<?php
-}else{
+	<?php }else{
     
     if ($site_config["MEMBERSONLY"]) {
         loggedinonly();
@@ -89,19 +86,25 @@ if(!isset($_GET['history'])){
 
 	$query = 'SELECT COUNT(*) FROM shoutbox';
 	$result = SQL_Query_exec($query);
-	$row = mysql_fetch_row($result);
-	echo 'Pages: ';
-	$pages = round($row[0] / 100) + 1;
+	$row = mysql_fetch_row($result); ?>
+	<nav class="text-center">
+  		<ul class="pagination">
+	<?php $pages = round($row[0] / 100) + 1;
 	$i = 1;
-	while ($pages > 0){
-		echo "<a href='shoutbox.php?history=1&amp;page=".$i."'>[".$i."]</a>";
-		$i++;
+	while ($pages > 0){ ?>
+
+			<li><a href='shoutbox.php?history=1&amp;page=<?php echo $i;?>'><?php echo $i;?></a></li>
+
+	<?php $i++;
 		$pages--;
 	} ?>
 
-	</dl>
-	<dl class="dl-horizontal shoutbox">
-		<?php }
+		</ul>
+	</nav>
+	<dl class="dl-horizontal">
+	<?php }
+
+
 
 if (isset($_GET['history'])) {
 	if (isset($_GET['page'])) {
@@ -129,8 +132,7 @@ while ($row = mysql_fetch_assoc($result)) {
 		$alt = false;
 	}else{
 		$alt = true;
-	}
-?>
+	} ?>
 
 	<dt><?php echo date('jS M, g:ia', utc_to_tz_time($row['date'])); ?></dt>
 
@@ -140,50 +142,13 @@ while ($row = mysql_fetch_assoc($result)) {
 	
 	<?php } ?>
 
-	<a href="account-details.php?id=<?php echo $row['userid']; ?>" target="_parent"><strong><?php echo $row['user']; ?>:</strong></a><?php echo nl2br(format_comment($row['message'])); ?><dd>
+	<a href="account-details.php?id=<?php echo $row['userid']; ?>" target="_parent"><strong><?php echo $row['user']; ?>:</strong></a><?php echo nl2br(format_comment($row['message'])); ?></dd>
 
 	<?php } ?>
 
 </dl>
 
-<?php
-
-//if the user is logged in, show the shoutbox, if not, dont.
-if(!isset($_GET['history'])) {
-	if (isset($_COOKIE["pass"])){
-		?>
-		<form name='shoutboxform' action='shoutbox.php' method='post'>
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="row">
-				<div class="col-sm-8">
-			<div class="input-group">
-		<input type='text' name='message' class='form-control' />
-		<span class="input-group-btn">
-		<button type='submit' name='submit' class="btn btn-success"/><?php echo T_("SHOUT"); ?></button>
-		</span>
-		</div>
-		</div>
-		<div class="col-sm-4">
-		<div class="btn-group" role="group" aria-label="...">
-        <a href="javascript:PopMoreSmiles('shoutboxform', 'message');" class="btn btn-default"><?php echo T_("MORE_SMILIES"); ?></a>
-        <a href="javascript:PopMoreTags();" class="btn btn-default"><?php echo T_("TAGS"); ?></a>
-		<a href='shoutbox.php' class="btn btn-default"><?php echo T_("REFRESH"); ?></a>              
-		<a href='shoutbox.php?history=1' target='_blank' class="btn btn-default"><?php echo T_("HISTORY"); ?></a>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		
-		</form>
-		<?php
-	}else{
-		?>
-			<?php echo T_("SHOUTBOX_MUST_LOGIN"); ?>
-		<?php
-	}
-}
+<?php 
 
 if(!isset($_GET['history'])){ 
 	echo "</body></html>";
